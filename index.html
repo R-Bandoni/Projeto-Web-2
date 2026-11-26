@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quem são meus deputados?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Quem são meus deputados?</h1>
+    <p>Dados abertos da Câmara dos Deputados, apresentados de forma simples. Escolha um estado e veja quem o representa.</p>
+  </header>
+
+  <main>
+    <form id="filtro">
+      <label for="uf">Estado</label>
+      <select id="uf" required>
+        <option value="">Selecione...</option>
+      </select>
+      <label for="busca">Buscar por nome</label>
+      <input id="busca" type="search" placeholder="Ex.: Silva">
+    </form>
+
+    <!-- aria-live: leitores de tela anunciam carregando / erro -->
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <section id="grafico-area" hidden>
+      <h2>Deputados por partido</h2>
+      <canvas id="grafico" role="img" aria-label="Gráfico de barras com a quantidade de deputados por partido"></canvas>
+      <p id="resumo-grafico"></p>
+    </section>
+
+    <section>
+      <h2 id="titulo-lista">Deputados</h2>
+      <ul id="lista" class="grid"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Créditos e licenças</h2>
+    <ul>
+      <li>Dados: <a href="https://dadosabertos.camara.leg.br">API de Dados Abertos da Câmara dos Deputados</a> (dados públicos abertos).</li>
+      <li>Fotos dos deputados: Câmara dos Deputados (dados abertos).</li>
+      <li>Gráficos: <a href="https://www.chartjs.org">Chart.js</a>, licença MIT.</li>
+      <li>Fonte: padrão do sistema (nenhuma fonte externa).</li>
+    </ul>
+  </footer>
+
+  <!-- Biblioteca JS (requisito): Chart.js via CDN, versão fixa -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
